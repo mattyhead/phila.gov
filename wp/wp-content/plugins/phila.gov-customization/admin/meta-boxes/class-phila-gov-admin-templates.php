@@ -82,6 +82,12 @@ class Phila_Gov_Admin_Templates {
           'relation' => 'or'
         ),
       ),
+      array(
+        'id' => 'phila_template_select_staff',
+        'type' => 'custom_html',
+        'std' => 'Some message about adding new staff.',
+        'visible' => array('phila_template_select', 'in', ['staff_directory_v2','staff_directory'])
+      )
     ),
   );
    return $meta_boxes;
