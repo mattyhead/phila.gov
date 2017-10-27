@@ -1455,3 +1455,81 @@ function add_lightbox_rel($content) {
   $content = preg_replace($pattern, $replacement, $content);
   return $content;
 }
+
+//Filter the post_thumbnail metabox and add warning message for low-res images
+function filter_featured_image_admin_text( $content, $post_id, $thumbnail_id ){
+  
+  if( get_post_type( $post_id ) == 'phila_post' ){
+
+    $thumb_meta = wp_get_attachment_metadata( $thumbnail_id );
+    
+    if($thumb_meta['width'] < 1000 || $thumb_meta['height'] < 700){
+
+      $warning = "<p>Featured blog images smaller than the required width and height will not be displayed.</p>";
+      $content = $warning . $content;
+      
+    }
+
+    $content = '<p><em>Required size: 1000 by 700 px</em></p>' . $content;
+  }
+
+  return $content;
+
+}
+add_filter( 'admin_post_thumbnail_html', 'filter_featured_image_admin_text', 10, 3 );
+
+
+//Hook into users columns and add new column to display which categories this user can access.
+function add_user_retricted_categories_column($columns) {
+  return array_merge( $columns, 
+            array('user_restricted_cats' => __(' Restricted Categories ')) );
+}
+add_filter('manage_users_columns' , 'add_user_retricted_categories_column');
+
+// Now we add some content to each row by using 'manage_users_custom_column' hook
+function user_restricted_category_column_values($val, $column_name, $user_id) {
+
+  $cat_list = '';
+
+    if($column_name == "user_restricted_cats"){
+
+      $defaults = array( 'RestrictCategoriesDefault' );
+
+      // Get the current user in the admin
+		  $user = new WP_User( $user_id );
+    
+        // Get the user role
+        $user_cap = $user->roles;
+    
+        // Get the user login name/ID
+        if ( function_exists( 'get_users' ) )
+          $user_login = $user->user_nicename;
+        elseif ( function_exists( 'get_users_of_blog' ) )
+          $user_login = $user->ID;
+    
+        // Get selected categories for Roles
+        $settings = get_option( 'RestrictCats_options' );
+    
+        // Get selected categories for Users
+        $settings_user = get_option( 'RestrictCats_user_options' );
+    
+        // For users, strip out the placeholder category, which is only used to make sure the checkboxes work
+        if ( is_array( $settings_user ) && array_key_exists( $user_login . '_user_cats', $settings_user ) ) {
+          $settings_user[ $user_login . '_user_cats' ] = array_values( array_diff( $settings_user[ $user_login . '_user_cats' ], $defaults ) );
+          // Selected categories for User overwrites Roles selection
+		if ( is_array( $settings_user ) && !empty( $settings_user[ $user_login . '_user_cats' ] ) ) {
+      
+            // Build the category list
+            foreach ( $settings_user[ $user_login . '_user_cats' ] as $category ) {
+              $term = get_term_by( 'slug', $category, 'category' );
+              $cat_list[] = $term->name;
+            }
+  
+          }
+        }
+    }
+    
+    return (is_array($cat_list) ? implode(', ' , $cat_list) : '');
+
+}
+add_action( 'manage_users_custom_column', 'user_restricted_category_column_values', 10, 3 );
