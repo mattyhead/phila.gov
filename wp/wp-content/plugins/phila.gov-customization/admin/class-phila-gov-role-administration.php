@@ -260,8 +260,12 @@ class Phila_Gov_Role_Administration {
    */
   function display_users_in_same_role( $output ){
     global $post;
-
+    global $pagenow;
     global $current_user;
+
+    //bail if this isn't a new post or a page to edit
+    if ( $pagenow != 'post.php' && $pagenow != 'post-new.php' )
+      return;
 
     $secondary_role_name = $current_user->roles;
     $user_role = array_shift($secondary_role_name);
@@ -272,6 +276,7 @@ class Phila_Gov_Role_Administration {
     );
 
     $output = "<select id=\"post_author_override\" name=\"post_author_override\" class=\"\">";
+
 
     foreach($users as $user) {
       $sel = ($post->post_author == $user->ID)?"selected='selected'":'';
