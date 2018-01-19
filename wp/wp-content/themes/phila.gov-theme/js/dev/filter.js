@@ -119,7 +119,7 @@ jQuery(document).ready(function($) {
 
   function applyValues() {
     $( '#service_filter input[type="checkbox"]' ).prop( 'checked', false );
-    for ( i=0 ; i < confirmedValues.length ; i++ ){
+    for ( var i=0 ; i < confirmedValues.length ; i++ ){
       $( 'input#' + confirmedValues[i] ).trigger( 'click' );
     }
   }
