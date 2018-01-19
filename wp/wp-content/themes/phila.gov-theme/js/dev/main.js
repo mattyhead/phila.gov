@@ -1,6 +1,6 @@
 var $ = require('jquery');
 
-require('@fortawesome/fontawesome');
+require('./register-fonts');
 
 require('phila-standards');
 
