@@ -18,7 +18,7 @@ get_header(); ?>
         <div class="row expanded ptl pbs pvxl-mu">
           <div class="medium-14 small-centered columns beta-message">
             <span class="h1 break-after">Beta.phila.gov</span> <span class="h2 sub-title">is a work-in-progress.</span>
-            <p class="mvm">We’re looking for your input so we can design a website that better meets your needs. Send us your ideas through the site’s <span class="nowrap"><i class="fa fa-lightbulb-o fa-lg"></i> feedback links.</span></p>
+            <p class="mvm">We’re looking for your input so we can design a website that better meets your needs. Send us your ideas through the site’s <span class="nowrap"><i class="far fa-lightbulb"></i> feedback links.</span></p>
           </div>
         </div>
         <!-- End beta.phila.gov message -->
@@ -30,7 +30,7 @@ get_header(); ?>
                   <div class="phs pvm cta-block clearfix">
                     <div class="valign">
                       <div class="valign-cell">
-                        <i class="fa fa-trash fa-4x"></i>
+                        <i class="fas fa-trash-alt fa-5x home-cta-icon"></i>
                       </div>
                     </div>
                     <div>
@@ -44,7 +44,7 @@ get_header(); ?>
                   <div class="phs pvm cta-block clearfix">
                     <div class="valign ">
                       <div class="valign-cell">
-                        <i class="fa fa-credit-card fa-4x"></i>
+                        <i class="fa fa-credit-card fa-5x home-cta-icon"></i>
                       </div>
                     </div>
                     <div>
@@ -58,7 +58,7 @@ get_header(); ?>
                   <div class="phs pvm cta-block clearfix">
                     <div class="valign ">
                       <div class="valign-cell">
-                        <i class="fa fa-briefcase fa-4x"></i>
+                        <i class="fa fa-briefcase fa-5x home-cta-icon"></i>
                       </div>
                     </div>
                     <div>
@@ -72,7 +72,7 @@ get_header(); ?>
                   <div class="phs pvm cta-block clearfix">
                     <div class="valign ">
                       <div class="valign-cell">
-                        <i class="fa fa-home fa-4x"></i>
+                        <i class="fa fa-home fa-5x home-cta-icon"></i>
                       </div>
                     </div>
                     <div>
@@ -261,7 +261,7 @@ get_header(); ?>
       <div class="feedback phm phn-mu mvs mvn-mu">
         <div class="row expanded" data-toggle="feedback">
           <div class="column call-to-action pas center">
-            <a href="#" class="no-link"><i class="fa fa-lightbulb-o" aria-hidden="true"></i><span class="break-before-sm"> What should we we add to the neighborhood resources section?</span>
+            <a href="#" class="no-link"><i class="fa fa-5xightbulb-o" aria-hidden="true"></i><span class="break-before-sm"> What should we we add to the neighborhood resources section?</span>
             <span class="break-before-sm"> Tell us</span>.</a>
           </div>
         </div>
@@ -305,8 +305,8 @@ get_header(); ?>
                 <p>Throughout the redesign process, we’ve been collaborating with people like you to inform the direction and usability of the site. Please continue to send us your thoughts:</p>
 
                 <ul class="list-style-none mln pln pvm">
-                  <li class="mbm"><i class="fa fa-arrow-right fa-lg prs" aria-hidden="true"></i> Use the site’s <i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i> feedback links to alert us to content errors and design feedback.</li>
-                  <li class="mbm"><i class="fa fa-arrow-right fa-lg prs" aria-hidden="true"></i> <a href="<?php phila_util_echo_tester_url()?>">Sign up to be a beta.phila.gov tester</a>. We’ll contact you for specific feedback on features as we design them.</li>
+                  <li class="mbm"><i class="fa fa-arrow-right fa-5xg prs" aria-hidden="true"></i> Use the site’s <i class="fa fa-5xightbulb-o fa-5xg" aria-hidden="true"></i> feedback links to alert us to content errors and design feedback.</li>
+                  <li class="mbm"><i class="fa fa-arrow-right fa-5xg prs" aria-hidden="true"></i> <a href="<?php phila_util_echo_tester_url()?>">Sign up to be a beta.phila.gov tester</a>. We’ll contact you for specific feedback on features as we design them.</li>
                 </ul>
 
               </section>
