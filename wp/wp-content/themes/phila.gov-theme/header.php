@@ -41,9 +41,6 @@
         <?php endif;?>
       <?php endif; ?>
   <?php endif; ?>
-
-  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/v4-shims.js"></script>
 </head>
 
 <body <?php body_class(); ?> lang="en">
@@ -130,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="small-5 medium-1 columns valign phn-m">
               <div class="valign-cell">
                 <button class="site-search" type="button"  data-toggle="search-dropdown">
-                  <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+                  <i class="fa fa-search fa-3x" aria-hidden="true"></i>
                   <span class="show-for-small-only">Search</span>
                 </button>
               </div>
@@ -148,11 +145,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="top-bar-right valign-mu show-for-small-only">
               <nav data-swiftype-index="false" class="valign-mu">
                 <ul id="mobile-nav-drilldown" class="vertical menu pan valign-mu">
-                  <li><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
+                  <li><a href="/"><i class="fa fa-home fa-lg fa-fw"></i>Home</a></li>
                   <li class="is-drilldown-submenu-parent" tabindex="0">
-                    <a href="#services" class="valign-cell"><i class="fa fa-list show-for-small-only"></i>Services</a>
+                    <a href="#services" class="valign-cell"><i class="fa fa-list show-for-small-only fa-fw"></i>Services</a>
                     <ul class="menu vertical menu-top-offset" tabindex="0">
-                      <li tabindex="0"><a href="/services/">Service directory</a></li>
+                      <li><a href="/services/">Service directory</a></li>
                       <?php
                         $args = array(
                           //TODO: only display pages with taxonomy applied
@@ -167,19 +164,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       ?>
                     </ul>
                     </li>
-                    <li tabindex="0">
-                      <a href="/programs-initiatives/" class="valign-cell"><i class="fa fa-info-circle"></i> Programs &amp; initiatives</a>
+                    <li>
+                      <a href="/programs-initiatives/" class="valign-cell"><i class="fa fa-info-circle fa-fw"></i>Programs &amp; initiatives</a>
                     </li>
-                    <li tabindex="0">
-                      <a href="/news/" class="valign-cell"><i class="fa fa-microphone"></i> News &amp; events</a>
+                    <li>
+                      <a href="/news/" class="valign-cell"><i class="fa fa-microphone fa-fw"></i>News &amp; events</a>
                     </li>
-                    <li tabindex="0">
-                      <a href="/documents/" class="valign-cell"><i class="fa fa-file-text"></i> Publications &amp; forms</a>
+                    <li>
+                      <a href="/documents/" class="valign-cell"><i class="fas fa-file-alt fa-fw"></i>Publications &amp; forms</a>
                     </li>
-                    <li class="bg-sidewalk" tabindex="0">
-                      <a href="/mayor/"><i class="fa fa-university"></i> Mayor's Office</a>
+                    <li class="bg-sidewalk">
+                      <a href="/mayor/"><i class="fa fa-university fa-fw"></i>Mayor's Office</a>
                     </li>
-                    <li class="bg-sidewalk" tabindex="0"><a href="/departments/"><i class="fa fa-sitemap"></i> City government directory</a>
+                    <li class="bg-sidewalk"><a href="/departments/"><i class="fa fa-sitemap fa-fw"></i>City government directory</a>
                     </li>
                   </ul>
                 </nav>
