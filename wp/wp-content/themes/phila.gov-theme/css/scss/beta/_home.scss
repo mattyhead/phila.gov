@@ -66,30 +66,16 @@
       font-family: 'Montserrat', 'Tahoma', sans-serif;
 
       a {
-        color:black;
-        .fa, p {
+        p {
           color: color(dark-ben-franklin);
         }
-        .fa {
-          font-size: 5rem;
-          line-height: 5rem;
+        .home-cta-icon {
           @media only screen and (min-width: 40em) {
             font-size: 3rem;
             line-height: 4rem;
           }
           @media only screen and (min-width: 64em) {
             font-size: 4rem;
-          }
-        }
-        .fa-home {
-          font-size: 6rem;
-          line-height: 5rem;
-          @media only screen and (min-width: 40em) {
-            font-size: 4rem;
-            line-height: 4rem;
-          }
-          @media only screen and (min-width: 64em) {
-            font-size: 5rem;
           }
         }
     }
