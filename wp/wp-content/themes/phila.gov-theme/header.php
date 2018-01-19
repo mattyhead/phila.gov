@@ -42,6 +42,8 @@
       <?php endif; ?>
   <?php endif; ?>
 
+  <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/v4-shims.js"></script>
 </head>
 
 <body <?php body_class(); ?> lang="en">
