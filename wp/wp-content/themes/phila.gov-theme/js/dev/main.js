@@ -1,5 +1,7 @@
 var $ = require('jquery');
 
+require('@fortawesome/fontawesome');
+
 require('phila-standards');
 
 require('./city-directory-list');
