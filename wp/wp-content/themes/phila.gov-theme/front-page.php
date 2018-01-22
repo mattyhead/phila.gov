@@ -315,7 +315,7 @@ get_header(); ?>
               <section>
                 <h3>Where are we in the redesign process?</h3>
                 <p>For the past couple of years, we’ve been working closely with content creators, City colleagues, and the public to rewrite service information and to design features that better meet your needs.</p>
-                <div class="row collapse">
+                <div class="row collapse mbs">
                   <div class="medium-8 columns center small-centered ben-franklin-blue marker">
                     <i class="fas fa-map-marker-alt fa-2x" aria-hidden="true"></i>
                   </div>
