@@ -147,10 +147,10 @@
               </a>
             </li>
             <li class="pbm">
-              <a href="http://www.phila.gov/channel64/Pages/default.aspx" class="prm">
+              <a href="http://www.phila.gov/channel64/Pages/default.aspx">
                 <span class="fa-layers fa-fw">
                   <i class="fal fa-tv fa-3x" title="TV" aria-hidden="true"></i>
-                  <span class="fa-layers-text fa-inverse" data-fa-transform=" up-2 right-9">64</span>
+                  <span class="fa-layers-text fa-inverse" data-fa-transform="up-2 right-12">64</span>
                   <span class="show-for-sr">TV 64</span>
                 </span>
               </a>
