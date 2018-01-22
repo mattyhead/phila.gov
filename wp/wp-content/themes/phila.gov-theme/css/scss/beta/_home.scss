@@ -196,17 +196,6 @@
         font-weight: bold;
       }
     }
-    .marker {
-      &:after {
-        content: '';
-        text-align: center;
-        border-right: 1px solid color(ben-franklin-blue);
-        display: inline-block;
-        height: 20px;
-        width: 0px;
-        margin-top: -10px;
-      }
-    }
 
     .left-arrow-indent {
       position: relative;
