@@ -1545,7 +1545,7 @@ function phila_get_post_label( $label ){
         $label = array(
           'label' => $original_label,
           'nice' => 'Featured',
-          'icon' => 'newspaper-o',
+          'icon' => 'newspaper',
         );
         break;
       case 'press_release':
