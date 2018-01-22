@@ -29,7 +29,7 @@
   <a <?php echo ($label_arr['label'] !== 'announcement') ? 'href=' . get_permalink() : '' ?> class="card card--<?php echo $label_arr['label'] ?> <?php echo ($is_last) ? 'card--last' : ''; ?> pam" <?php echo ($label_arr['label'] == 'announcement') ? 'data-open="announcement-' . get_the_ID() .'"' : ''?>>
     <div class="grid-x flex-dir-column card--content">
       <div class="cell align-self-top post-label post-label--<?php echo $label_arr['label']?>">
-        <i class="fa fa-<?php echo $label_arr['icon'] ?> fa-lg" aria-hidden="true"></i> <span><?php echo $label_arr['nice']; ?></span>
+        <i class="fal fa-<?php echo $label_arr['icon'] ?> fa-lg" aria-hidden="true"></i> <span><?php echo $label_arr['nice']; ?></span>
         <header class="mvm">
           <h1><?php echo get_the_title(); ?></h1>
         </header>
