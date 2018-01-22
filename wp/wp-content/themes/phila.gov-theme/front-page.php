@@ -209,7 +209,7 @@ get_header(); ?>
               <div class="panel equal" data-equalizer-watch="" >
                 <header class="">
                   <div class="icon">
-                    <span><i class="fa fa-soccer-ball-o fa-5x" aria-hidden="true"></i></span>
+                    <span><i class="far fa-futbol fa-5x" aria-hidden="true"></i></span>
                   </div>
                   <span class="external">Playgrounds</span>
                 </header>
@@ -248,7 +248,7 @@ get_header(); ?>
               <div class="panel equal" data-equalizer-watch="" >
                 <header class="">
                   <div class="icon">
-                    <span><i class="fa fa-shield fa-5x" aria-hidden="true"></i></span>
+                    <span><i class="fas fa-shield-alt fa-5x" aria-hidden="true"></i></span>
                   </div>
                   <span class="external">Police stations</span>
                 </header>
@@ -261,7 +261,7 @@ get_header(); ?>
       <div class="feedback phm phn-mu mvs mvn-mu">
         <div class="row expanded" data-toggle="feedback">
           <div class="column call-to-action pas center">
-            <a href="#" class="no-link"><i class="fa fa-5xightbulb-o" aria-hidden="true"></i><span class="break-before-sm"> What should we we add to the neighborhood resources section?</span>
+            <a href="#" class="no-link"><i class="far fa-lightbulb" aria-hidden="true"></i><span class="break-before-sm"> What should we we add to the neighborhood resources section?</span>
             <span class="break-before-sm"> Tell us</span>.</a>
           </div>
         </div>
@@ -305,7 +305,7 @@ get_header(); ?>
                 <p>Throughout the redesign process, we’ve been collaborating with people like you to inform the direction and usability of the site. Please continue to send us your thoughts:</p>
 
                 <ul class="list-style-none mln pln pvm">
-                  <li class="mbm"><i class="fa fa-arrow-right fa-5xg prs" aria-hidden="true"></i> Use the site’s <i class="fa fa-5xightbulb-o fa-5xg" aria-hidden="true"></i> feedback links to alert us to content errors and design feedback.</li>
+                  <li class="mbm"><i class="fa fa-arrow-right fa-5xg prs" aria-hidden="true"></i> Use the site’s <i class="far fa-lightbulb" aria-hidden="true"></i> feedback links to alert us to content errors and design feedback.</li>
                   <li class="mbm"><i class="fa fa-arrow-right fa-5xg prs" aria-hidden="true"></i> <a href="<?php phila_util_echo_tester_url()?>">Sign up to be a beta.phila.gov tester</a>. We’ll contact you for specific feedback on features as we design them.</li>
                 </ul>
 
@@ -317,7 +317,7 @@ get_header(); ?>
                 <p>For the past couple of years, we’ve been working closely with content creators, City colleagues, and the public to rewrite service information and to design features that better meet your needs.</p>
                 <div class="row collapse">
                   <div class="medium-8 columns center small-centered ben-franklin-blue marker">
-                    <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
+                    <i class="fas fa-map-marker-alt fa-2x" aria-hidden="true"></i>
                   </div>
                 </div>
                 <div class="row collapse process-bar">
