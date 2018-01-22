@@ -281,7 +281,7 @@ get_header(); ?>
         </div>
         <div class="row expanded" data-toggle="feedback" data-type="feedback-footer" style="display:none;">
           <div class="column call-to-action center">
-            <div class="pas"><a href="#" class="no-link"><i class="fa fa-close" aria-hidden="true"></i> Close</a></div>
+            <div class="pas"><a href="#" class="no-link"><i class="fas fa-times" aria-hidden="true"></i> Close</a></div>
           </div>
         </div>
       </div>
@@ -305,8 +305,8 @@ get_header(); ?>
                 <p>Throughout the redesign process, we’ve been collaborating with people like you to inform the direction and usability of the site. Please continue to send us your thoughts:</p>
 
                 <ul class="list-style-none mln pln pvm">
-                  <li class="mbm"><i class="fa fa-arrow-right fa-5xg prs" aria-hidden="true"></i> Use the site’s <i class="far fa-lightbulb" aria-hidden="true"></i> feedback links to alert us to content errors and design feedback.</li>
-                  <li class="mbm"><i class="fa fa-arrow-right fa-5xg prs" aria-hidden="true"></i> <a href="<?php phila_util_echo_tester_url()?>">Sign up to be a beta.phila.gov tester</a>. We’ll contact you for specific feedback on features as we design them.</li>
+                  <li class="mbm"><i class="fas fa-arrow-right fa-lg prs" aria-hidden="true"></i> Use the site’s <i class="far fa-lightbulb" aria-hidden="true"></i> feedback links to alert us to content errors and design feedback.</li>
+                  <li class="mbm"><i class="fas fa-arrow-right fa-lg prs" aria-hidden="true"></i> <a href="<?php phila_util_echo_tester_url()?>">Sign up to be a beta.phila.gov tester</a>. We’ll contact you for specific feedback on features as we design them.</li>
                 </ul>
 
               </section>
