@@ -900,22 +900,22 @@ function phila_get_service_updates(){
 
       switch($service_type){
         case 'city':
-          $service_icon = 'fa-institution';
+          $service_icon = 'fas fa-university';
           break;
           case 'roads':
-            $service_icon = 'fa-road';
+            $service_icon = 'fa fa-road';
             break;
           case 'transit':
-            $service_icon = 'fa-subway';
+            $service_icon = 'fa fa-subway';
             break;
           case 'trash':
-            $service_icon = 'fa-trash';
+            $service_icon = 'fas fa-trash-alt';
             break;
           case 'phones':
-            $service_icon = 'fa-phone';
+            $service_icon = 'fa fa-phone';
             break;
           case 'offices':
-            $service_icon = 'fa-building-o';
+            $service_icon = 'fas fa-building';
             break;
           default :
             $service_icon = '';
