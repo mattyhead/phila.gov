@@ -48,10 +48,10 @@
         <div class="panel <?php if( $item_count > 1 ) echo 'equal';?>">
         <header class="<?php echo $columns == '24' ? 'text-align-left' : ''; ?>">
         <?php if ($action_panel_fa): ?>
-          <div class="<?php echo $columns == '24' ? 'float-left mrm' : ''; ?>">
-            <span class="fa-stack <?php echo $columns == '24' ? 'fa-3x' : 'fa-4x'; ?> center" aria-hidden="true">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa <?php echo $action_panel_fa; ?> fa-stack-1x fa-inverse"></i>
+          <div class="<?php echo $columns == '24' ? 'float-left mrm' : ''; ?> fa-3x">
+            <span class="fa-layers fa-fw <?php echo $columns == '24' ? 'fa-lg' : 'fa-2x'; ?> center" aria-hidden="true">
+              <i class="fa fa-circle"></i>
+              <i class="fa <?php echo $action_panel_fa; ?> fa-inverse" data-fa-transform="shrink-10"></i>
             </span>
           </div>
         <?php endif; ?>
