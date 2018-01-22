@@ -166,10 +166,10 @@ if ( !empty( $row_one_col_two_module ) ){
         <div class="panel">
         <header>
         <?php if ($row_one_col_two_action_panel_fa_circle): ?>
-          <div>
-            <span class="fa-stack fa-4x center" aria-hidden="true">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa <?php echo $row_one_col_two_action_panel_fa; ?> fa-stack-1x fa-inverse"></i>
+          <div class="fa-4x">
+            <span class="fa-layers fa-fw center" aria-hidden="true">
+              <i class="fa fa-circle"></i>
+              <i class="fa <?php echo $row_one_col_two_action_panel_fa; ?> fa-inverse" data-fa-transform="shrink-10"></i>
             </span>
           </div>
         <?php else: ?>

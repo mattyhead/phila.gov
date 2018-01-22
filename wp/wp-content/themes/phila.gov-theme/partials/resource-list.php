@@ -48,19 +48,19 @@
 
           switch ($item_resource_type) {
             case ('phila_resource_document'):
-              $icon = 'fa-file-text';
+              $icon = 'fas fa-file-alt';
               break;
 
             case ('phila_resource_map'):
-              $icon = 'fa-map-marker';
+              $icon = 'fas fa-map-marker-alt';
               break;
 
             case ('phila_resource_link'):
-              $icon = 'fa-link';
+              $icon = 'fa fa-link';
               break;
 
             default:
-              $icon = 'fa-file-text';
+              $icon = 'fas fa-file-alt';
           }
 
           if ( $item_featured ):
@@ -69,7 +69,7 @@
             $featured_resources[$featured_display_order] = array('title' => $item_title , 'alt-title' => $item_alt_title ,  'url' => $item_url , 'type' => $item_resource_type, 'icon' => $icon , 'summary' => $featured_summary );
           endif;
 
-          $list_item_output .= '<li class="phm pvs clickable-row" data-href="' . $item_url . '"><a href="' . $item_url . '"><div><i class="fa ' . $icon . ' fa-lg" aria-hidden="true"></i></div> <div>' . $item_title . '</div></a></li>';
+          $list_item_output .= '<li class="phm pvs clickable-row" data-href="' . $item_url . '"><a href="' . $item_url . '"><div><i class="fa ' . $icon . ' fa-lg mrm" aria-hidden="true"></i></div> <div>' . $item_title . '</div></a></li>';
 
         endforeach;
 
@@ -110,10 +110,10 @@
                 <a href="<?php echo $featured_resources[$key]['url']; ?>"  class="action-panel">
                   <div class="panel <?php if( $item_count > 1 ) echo 'equal';?>">
                   <header class="<?php echo $columns == '24' ? 'text-align-left' : ''; ?>">
-                    <div class="<?php echo $columns == '24' ? 'float-left mrm' : ''; ?>">
-                      <span class="fa-stack <?php echo $columns == '24' ? 'fa-3x' : 'fa-4x'; ?> center" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa <?php echo $featured_resources[$key]['icon']; ?> fa-stack-1x fa-inverse"></i>
+                    <div class="<?php echo $columns == '24' ? 'float-left mrm' : ''; ?> fa-3x center">
+                      <span class="fa-layers fa-fw <?php echo $columns == '24' ? 'fa-lg' : 'fa-2x'; ?>" aria-hidden="true">
+                        <i class="fa fa-circle"></i>
+                        <i class="<?php echo $featured_resources[$key]['icon']; ?> fa-inverse" data-fa-transform="shrink-10"></i>
                       </span>
                     </div>
                     <?php if (!$featured_resources[$key]['alt-title'] == ''): ?>
