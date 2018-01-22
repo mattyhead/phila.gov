@@ -10,7 +10,7 @@
 
   </div><!-- #content -->
  </div><!-- #page -->
-  <a href="#page" id="back-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i><br>Top</a>
+  <a href="#page" id="back-to-top"><i class="fa fa-arrow-up fa-3x" aria-hidden="true"></i><br>Top</a>
  <?php get_template_part( 'searchform' ); ?>
  <?php get_template_part( 'partials/content', 'service-mega-menu' ); ?>
 
@@ -30,13 +30,15 @@
           <span><a href="http://www.phila.gov/311" class="external" aria-label="Philly 311">311</a> provides direct access to City government information, services, and real-time service updates. Multiple languages are available. Call 311 or <a href="https://twitter.com/philly311" class="external">tweet @philly311</a> for a quick response.</span>
         </div>
       </div>
-      <div class="row pvn pvl-mu equal-height">
-        <div class="small-24 medium-8 columns pll prxl pvm ptn-mu pbl-mu pbl-mu sidewalk bdr-right-mu interact-311 clearfix equal">
+      <div class="row pvn pvl-mu">
+        <div class="small-24 medium-8 columns pll prxl pvm ptn-mu pbl-mu pbl-mu sidewalk bdr-right-mu interact-311 clearfix">
           <section>
             <h3 class="h4 dark-gray">Interact with 311 online</h3>
             <a href="http://iframe.publicstuff.com/#?client_id=242" class="button icon full-width clearfix">
               <div class="valign">
-                <i class="fa fa-bullhorn valign-cell"></i>
+                <div class="icon-container">
+                  <i class="fa fa-bullhorn valign-cell fa-fw" data-fa-transform="grow-1"></i>
+                </div>
                 <div class="button-label valign-cell">Report a problem</div>
               </div>
             </a>
@@ -54,7 +56,7 @@
             </a>
           </section>
         </div>
-        <div class="medium-16 columns trending-requests phl pvm pvn-mu equal">
+        <div class="medium-16 columns trending-requests phl pvm pvn-mu">
           <section>
             <h3 class="h4 dark-gray">Trending requests</h3>
             <!-- TODO: Begin pulling these in from 311 -->
@@ -127,49 +129,47 @@
         <nav class="city-social">
           <ul class="inline-list">
             <li class="pbm">
-              <a href="https://www.facebook.com/cityofphiladelphia" class="prl" data-analytics="social">
-                <i class="fa fa-facebook fa-3x" title="Facebook" aria-hidden="true"></i>
+              <a href="https://www.facebook.com/cityofphiladelphia" class="prm" data-analytics="social">
+                <i class="fab fa-facebook-f fa-3x fa-fw" title="Facebook" aria-hidden="true"></i>
                 <span class="show-for-sr">Facebook</span>
               </a>
             </li>
             <li class="pbm">
-              <a href="https://twitter.com/PhiladelphiaGov" class="prl"  data-analytics="social">
-                <i class="fa fa-twitter fa-3x" title="Twitter" aria-hidden="true"></i>
+              <a href="https://twitter.com/PhiladelphiaGov" class="prm"  data-analytics="social">
+                <i class="fab fa-twitter fa-3x fa-fw" title="Twitter" aria-hidden="true"></i>
                 <span class="show-for-sr">Twitter</span>
               </a>
             </li>
             <li class="pbm">
-              <a href="https://www.instagram.com/cityofphiladelphia/" class="prl" data-analytics="social">
-                <i class="fa fa-instagram fa-3x" title="Instagram" aria-hidden="true"></i>
+              <a href="https://www.instagram.com/cityofphiladelphia/" class="prm" data-analytics="social">
+                <i class="fab fa-instagram fa-3x fa-fw" title="Instagram" aria-hidden="true"></i>
                 <span class="show-for-sr">Instagram</span>
               </a>
             </li>
-            <li class="pvxs">
-              <a href="http://www.phila.gov/channel64/Pages/default.aspx" class="prl">
-                <span class="fa fa-stack fa-lg">
-                  <i class="fa fa-tv fa-stack-2x" title="TV" aria-hidden="true"></i>
-                  <i class="fa fa-stack-1x">
-                    <span class="h4">64</span>
-                  </i>
+            <li class="pbm">
+              <a href="http://www.phila.gov/channel64/Pages/default.aspx" class="prm">
+                <span class="fa-layers fa-fw">
+                  <i class="fal fa-tv fa-3x" title="TV" aria-hidden="true"></i>
+                  <span class="fa-layers-text fa-inverse" data-fa-transform=" up-2 right-9">64</span>
                   <span class="show-for-sr">TV 64</span>
                 </span>
               </a>
             </li>
             <li class="pbm">
-              <a href="https://www.youtube.com/user/PhilaGov" class="prl" data-analytics="social">
-                <i class="fa fa-youtube fa-3x" title="Youtube" aria-hidden="true"></i>
+              <a href="https://www.youtube.com/user/PhilaGov" class="prm" data-analytics="social">
+                <i class="fab fa-youtube fa-3x fa-fw" title="Youtube" aria-hidden="true"></i>
                 <span class="show-for-sr">Youtube</span>
               </a>
             </li>
             <li class="pbm">
-              <a href="https://www.flickr.com/photos/phillycityrep" class="prl" data-analytics="social">
-                <i class="fa fa-flickr fa-3x" title="Flickr" aria-hidden="true"></i>
+              <a href="https://www.flickr.com/photos/phillycityrep" class="prm" data-analytics="social">
+                <i class="fab fa-flickr fa-3x fa-fw" title="Flickr" aria-hidden="true"></i>
                 <span class="show-for-sr">Flickr</span>
               </a>
             </li>
             <li class="pbm">
-              <a href="https://github.com/CityOfPhiladelphia" class="prl"  data-analytics="social">
-                <i class="fa fa-github fa-3x" title="GitHub" aria-hidden="true"></i>
+              <a href="https://github.com/CityOfPhiladelphia" class="prm"  data-analytics="social">
+                <i class="fab fa-github fa-3x fa-fw" title="GitHub" aria-hidden="true"></i>
                 <span class="show-for-sr">GitHub</span>
               </a>
             </li>
