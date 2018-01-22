@@ -81,7 +81,7 @@
     <?php if ( !phila_util_is_array_empty($connect_vars['website']) )  : ?>
       <tr>
         <th scope="row" aria-label="website">
-          <i class="fa fa-globe fa-2x" aria-hidden="true"></i>
+          <i class="fal fa-globe fa-2x" aria-hidden="true"></i>
         </th>
         <td>
           <a href="<?php echo $connect_vars['website']['url'] ?>" class="<?php echo isset($connect_vars['website']['external']) ? 'external' : ''?>">

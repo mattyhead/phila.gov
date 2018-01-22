@@ -1531,35 +1531,35 @@ function phila_get_post_label( $label ){
         $label = array(
           'label' => $original_label,
           'nice' => 'Action guide',
-          'icon' => 'users',
+          'icon' => 'fas fa-users',
         );
         break;
       case 'announcement':
         $label = array(
           'label' => $original_label,
           'nice' => 'Announcement',
-          'icon' => 'bullhorn',
+          'icon' => 'fal fa-bullhorn',
         );
         break;
       case 'featured':
         $label = array(
           'label' => $original_label,
           'nice' => 'Featured',
-          'icon' => 'newspaper',
+          'icon' => 'fal fa-newspaper',
         );
         break;
       case 'press_release':
         $label = array(
           'label' => $original_label,
           'nice' => 'Press Release',
-          'icon' => 'file-text-o',
+          'icon' => 'fal fa-file-alt',
         );
         break;
       case 'post':
         $label = array(
          'label' => $original_label,
          'nice' => 'Post',
-         'icon' => 'pencil',
+         'icon' => 'fas fa-pencil-alt',
         );
         break;
     }

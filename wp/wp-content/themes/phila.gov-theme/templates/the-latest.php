@@ -17,40 +17,40 @@
       <div data-sticky-container class="bg-white">
         <nav class="sticky sticky--in-page center bg-white menu" data-sticky data-top-anchor="global-sticky-nav:bottom" style="width:100%" data-sticky-on="medium">
           <div class="grid-container">
-            <ul class="inline-list grid-x man" data-magellan data-options="offset: 106; deepLinking: true;">
+            <ul class="inline-list grid-x man" data-magellan data-options="deepLinking: true;">
               <li class="featured cell medium-auto small-24">
                 <a href="#featured">
-                  <i class="fal fa-fw fa-3x fa-newspaper" aria-hidden="true"></i>
+                  <i class="fal fa-fw fa-3x fa-newspaper mbm" aria-hidden="true"></i>
                   <div>Featured</div>
                 </a>
               </li>
               <li class="announcement cell medium-auto small-24">
                 <a href="#announcements">
-                  <i class="fal fa-fw fa-3x fa-bullhorn" aria-hidden="true"></i>
+                  <i class="fal fa-fw fa-3x fa-bullhorn mbm" aria-hidden="true"></i>
                   <div>Announcements</div>
                 </a>
               </li>
               <li class="post cell medium-auto small-24">
                 <a href="#posts">
-                  <i class="fas fa-fw fa-3x fa-pencil-alt" aria-hidden="true"></i>
+                  <i class="fas fa-fw fa-3x fa-pencil-alt mbm" aria-hidden="true"></i>
                   <div>Posts</div>
                 </a>
               </li>
               <li class="action_guide cell medium-auto small-24">
                 <a href="#action-guides">
-                  <i class="fas fa-fw fa-3x fa-users" aria-hidden="true"></i>
+                  <i class="fas fa-fw fa-3x fa-users mbm" aria-hidden="true"></i>
                   <div>Action guides</div>
                 </a>
               </li>
               <li class="event cell medium-auto small-24">
                 <a href="#events">
-                  <i class="fal fa-fw fa-3x fa-calendar-check" aria-hidden="true"></i>
+                  <i class="fal fa-fw fa-3x fa-calendar-check mbm" aria-hidden="true"></i>
                   <div>Events</div>
                 </a>
               </li>
               <li class="press_release cell medium-auto small-24">
                 <a href="#press-releases">
-                  <i class="fal fa-fw fa-3x fa-file-alt" aria-hidden="true"></i>
+                  <i class="fal fa-fw fa-3x fa-file-alt mbm" aria-hidden="true"></i>
                 <div>Press releases</div>
               </a>
               </li>
