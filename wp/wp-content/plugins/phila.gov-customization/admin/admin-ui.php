@@ -275,3 +275,37 @@ function remove_media_columns( $columns ) {
   unset( $columns['comments'] );
   return $columns;
 }
+
+/**
+ * Hooks into Media Modal query and changes the query if caller parameter matches
+ * Only shows images with specific width and height meta or svgs
+ * @since   0.22.0
+ */
+function restrict_media_library_by_width($query) {
+  if ($_POST['caller'] === 'set-post-thumbnail') {
+    $include = array();
+    $exclude = array();
+    $temp_query = new WP_Query($query);
+    if($temp_query->have_posts()) {
+      while($temp_query->have_posts()) {
+        $temp_query->the_post();
+        $meta = wp_get_attachment_metadata(get_the_ID());
+        $meta['mime-type'] = get_post_mime_type(get_the_ID());
+        if(isset($meta['mime-type']) &&
+          (($meta['mime-type'] == 'image/jpeg') && (isset($meta['width']) && $meta['width'] >= 1000) && (isset($meta['height']) && $meta['height'] >= 700)) ||
+          $meta['mime-type'] == 'image/svg+xml') {
+          $include[] = get_the_ID();
+        } else {
+          $exclude[] = get_the_ID();
+        }
+      }
+    }
+    wp_reset_query();
+
+    $query['post__in']     = $include;
+    $query['post__not_in'] = $exclude;
+  }
+
+  return $query;
+}
+add_filter('ajax_query_attachments_args', 'restrict_media_library_by_width');

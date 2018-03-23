@@ -14,6 +14,17 @@ function phila_user_read_only(){
 /* For all admins */
 jQuery(document).ready(function($) {
 
+  //Intercepts Media Modal ajax call and adds paramater
+  //Used to identify where the media modal call comes from
+  $('a#set-post-thumbnail, button.insert-media.add_media').on('click', function(){
+    
+    var el = $(this);
+    
+    $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+      options.data += '&caller=' + el.attr('id');
+    });
+
+});
 
   // Set error placement, and highlights for category selection
   jQuery.validator.setDefaults({
