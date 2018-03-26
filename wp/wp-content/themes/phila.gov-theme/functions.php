@@ -573,6 +573,9 @@ function phila_format_document_type($document_type){
     case 'plain':
       echo  'txt';
       break;
+    case 'zip':
+      echo 'zip';
+      break;
   }
 }
 
@@ -761,7 +764,7 @@ function phila_is_department_homepage( $post ) {
 /**
  * Echo a title and link to the department currently in the loop. Matches on category and page nice names, which *should* always be the same.
  * TODO: investigate a better way of handling the match.
- * @param $category String or array of categories applied to a page. Required.
+ * @param $category Category object. Required.
  * @param $byline Boolean Include ' by ' in display. Default true. Optional.
  * @param $name_list Boolean Return comma separated list of nice department names. Optional.
  *
@@ -867,14 +870,11 @@ function phila_get_service_updates(){
 
     $service_date_format = isset( $service_update_details['phila_date_format'] ) ? $service_update_details['phila_date_format'] : '';
 
-    if ( $service_date_format == 'date'):
-      $service_effective_start = isset( $service_update_details['phila_effective_start_date'] ) ? $service_update_details['phila_effective_start_date'] : '';
-      $service_effective_end = isset( $service_update_details['phila_effective_end_date'] ) ? $service_update_details['phila_effective_end_date'] : '';
+    if ($service_date_format == 'none'):
+      $service_effective_start = '';
+      $service_effective_end = '';
+      $valid_update = true;
 
-      //Add the number of seconds in 24 hours to the base date, which will always be 00:00:00 of the selected day. This ensures the update will remain visible for the duration of the selected day.
-      if ( ( intval( $service_effective_start['timestamp'] ) <= $current_time ) && ( intval( $service_effective_end['timestamp'] ) + 86400 ) >= $current_time ) :
-        $valid_update = true;
-      endif;
     elseif ( $service_date_format == 'datetime') :
       $service_effective_start = isset( $service_update_details['phila_effective_start_datetime'] ) ? $service_update_details['phila_effective_start_datetime'] : '';
 
@@ -883,10 +883,17 @@ function phila_get_service_updates(){
       if ( ( intval($service_effective_start['timestamp'] ) <= $current_time ) && ( intval($service_effective_end['timestamp'] ) >= $current_time ) ):
         $valid_update = true;
       endif;
-    elseif ($service_date_format == 'none'):
-      $service_effective_start = '';
-      $service_effective_end = '';
-      $valid_update = true;
+
+    elseif ( $service_date_format == 'date'):
+
+      $service_effective_start = isset( $service_update_details['phila_effective_start_date'] ) ? $service_update_details['phila_effective_start_date'] : '';
+      $service_effective_end = isset( $service_update_details['phila_effective_end_date'] ) ? $service_update_details['phila_effective_end_date'] : '';
+
+      //Add the number of seconds in 24 hours to the base date, which will always be 00:00:00 of the selected day. This ensures the update will remain visible for the duration of the selected day.
+      if ( ( intval( $service_effective_start['timestamp'] ) <= $current_time ) && ( intval( $service_effective_end['timestamp'] ) + 86400 ) >= $current_time ) :
+        $valid_update = true;
+      endif;
+
     endif;
 
     //Don't set any additional vars unless the update is current
@@ -918,22 +925,22 @@ function phila_get_service_updates(){
             $service_icon = 'fas fa-building';
             break;
           default :
-            $service_icon = '';
+            $service_icon = 'fa-institution';
             break;
       }
       switch($service_level){
         case '0':
           $service_level_label = 'normal';
           break;
-          case '1':
-            $service_level_label = 'warning';
-            break;
-          case '2':
-            $service_level_label = 'critical';
-            break;
-          default :
-            $service_level_label = 'normal';
-            break;
+        case '1':
+          $service_level_label = 'warning';
+          break;
+        case '2':
+          $service_level_label = 'critical';
+          break;
+        default :
+          $service_level_label = 'normal';
+          break;
       }
 
       $output_item ='';
@@ -953,6 +960,7 @@ function phila_get_service_updates(){
       );
 
       return $output_item;
+
     else :
       return;
     endif;
@@ -1434,7 +1442,7 @@ function phila_get_department_homepage_typography( $parent, $return_stripped = f
     "City of Philadelphia",
     "Mayor's Commission on",
     "Mayor's Office of",
-    "Philadelphia ",
+    "Philadelphia",
     "Commission on",
     "Board of",
     "Office of the",
@@ -1463,9 +1471,6 @@ function phila_get_department_homepage_typography( $parent, $return_stripped = f
       $new_title = $page_title;
     }
   }
-
-
-
 
   return $new_title;
 }
@@ -1505,8 +1510,8 @@ add_filter('the_content', 'add_lightbox_rel');
 function add_lightbox_rel($content) {
   global $post;
   $count = 0;
-  $pattern ="/<a(.*?)href=\"(.*?)(.bmp|.gif|.jpeg|.jpg|.png)(.*?)\">/i";
-  $replacement = '<a$1 data-img-url=$2$3 class="lightbox-link lightbox-all" data-open="phila-lightbox">';
+  $pattern ="/<a(.*?)href=\"(.*?)(.bmp|.gif|.jpeg|.jpg|.png)\"/i";
+  $replacement = '<a$1 data-img-url=$2$3 class="lightbox-link lightbox-all" data-open="phila-lightbox"';
   $content = preg_replace($pattern, $replacement, $content);
   return $content;
 }

@@ -108,9 +108,11 @@ class Phila_Gov_Standard_Metaboxes {
           'options' => Phila_Gov_Standard_Metaboxes::phila_wysiwyg_options_basic_heading()
         ),
         array(
-          'desc'  => 'Include an address?',
+          'name'  => 'Include an address?',
           'id'  => 'phila_address_select',
-          'type'  => 'checkbox',
+          'type'  => 'switch',
+          'on_label'  => 'Yes',
+          'off_label' => 'No'
         ),
         array(
           'id' => 'phila_std_address',
@@ -122,9 +124,11 @@ class Phila_Gov_Standard_Metaboxes {
           ),
         ),
         array(
-          'desc'  => 'Add stepped content?',
+          'name'  => 'Add stepped content?',
           'id'  => 'phila_stepped_select',
-          'type'  => 'checkbox'
+          'type'  => 'switch',
+          'on_label'  => 'Yes',
+          'off_label' => 'No'
         ),
         array(
           'id' => 'phila_stepped_content',
@@ -143,16 +147,21 @@ class Phila_Gov_Standard_Metaboxes {
 
     return array(
       array(
-        'name' => 'Calender ID',
+        'name' => 'Calendar Shortcode ID',
         'id'   => 'phila_full_width_calendar_id',
         'desc'  => 'ID of the calendar',
         'type' => 'number'
       ),
       array(
-        'name' => 'Calendar URL',
-        'id'   => 'phila_full_width_calendar_url',
-        'desc'  => 'URL of the full calendar',
-        'type' => 'url'
+        'name' => 'Calendar owner',
+        'id'   => 'phila_calendar_owner',
+        'type' => 'taxonomy_advanced',
+        'desc'  => 'Determines what owner filter will be applied when a user clicks "see all events". Default is this item\'s owner.',
+        'query_args' => array(
+          'taxonomy' => 'category',
+          'hide_empty' => false,
+        ),
+        'field_type'  => 'select_advanced'
       ),
     );
   }
@@ -163,6 +172,7 @@ class Phila_Gov_Standard_Metaboxes {
     return array(
       'id'  => 'phila_document_page_picker',
       'type'  => 'post',
+      'name'  => 'Select document page',
       'post_type' => 'document',
       'field_type'  => 'select_advanced',
       'desc'  => 'Add document pages. You can narrow your search options by typing in the field above.',
@@ -239,7 +249,7 @@ class Phila_Gov_Standard_Metaboxes {
           'id'  => 'phila_wysiwyg_content',
           'type'  => 'wysiwyg',
           'desc'  => $wysiwyg_desc,
-          'options' => Phila_Gov_Standard_Metaboxes::phila_wysiwyg_options_basic()
+          'options' => Phila_Gov_Standard_Metaboxes::phila_wysiwyg_options_basic_heading()
         )
       )
     );
@@ -266,9 +276,11 @@ class Phila_Gov_Standard_Metaboxes {
           'options' => Phila_Gov_Standard_Metaboxes::phila_wysiwyg_options_basic_heading()
         ),
         array(
-          'desc'  => 'Include an address?',
+          'name'  => 'Include an address?',
           'id'  => 'phila_address_select',
-          'type'  => 'checkbox',
+          'type'  => 'slider',
+          'on_label'  => 'Yes',
+          'off_label' => 'No'
         ),
         array(
           'id' => 'phila_std_address',
@@ -307,9 +319,11 @@ class Phila_Gov_Standard_Metaboxes {
           'options' => Phila_Gov_Standard_Metaboxes::phila_wysiwyg_options_basic()
         ),
         array(
-          'desc'  => 'Does this step contain an address?',
+          'name'  => 'Does this step contain an address?',
           'id'  => 'phila_address_step',
-          'type'  => 'checkbox',
+          'type'  => 'switch',
+          'on_label'  => 'Yes',
+          'off_label' => 'No'
         ),
         array(
           'id' => 'phila_std_address',
@@ -345,8 +359,8 @@ class Phila_Gov_Standard_Metaboxes {
           'columns' => 12,
           'required' => $required
          ),
-        Phila_Gov_Standard_Metaboxes::phila_metabox_url('Link URL', 'link_url' ),
-        Phila_Gov_Standard_Metaboxes::phila_metabox_external('', 'is_external' ),
+        Phila_Gov_Standard_Metaboxes::phila_metabox_url('URL', 'link_url', '', 6 ),
+        Phila_Gov_Standard_Metaboxes::phila_metabox_external($id = 'is_external'),
       )
     );
   }
@@ -362,7 +376,7 @@ class Phila_Gov_Standard_Metaboxes {
     );
   }
 
-  public static function phila_v2_service_page_selector(){
+  public static function phila_v2_service_page_selector( $multiple = false ){
     return array(
       'id'  => 'phila_v2_service_page',
       'name' => 'Select service page',
@@ -378,8 +392,32 @@ class Phila_Gov_Standard_Metaboxes {
         'meta_value' => 'service_stub',
         'meta_compare' => '!=',
         ),
-      'multiple'  => false,
+      'multiple'  => $multiple,
       'placeholder' => ' ',
+      'desc'     =>  'Add service pages. You can narrow your search options by typing in the field above.',
+      'js_options'  => array(
+        'width' => '100%',
+        'closeOnSelect' => false,
+      )
+    );
+  }
+
+  public static function phila_program_page_selector( $multiple = false ){
+
+    return array(
+      'name'          => 'Select program pages',
+      'id'          => 'phila_select_programs',
+      'type'        => 'post',
+      'post_type'   => 'programs',
+      'field_type'  => 'select_advanced',
+      'placeholder' => '',
+      'desc'     =>  'Add program pages. You can narrow your search options by typing in the field above.',
+      'multiple'  => $multiple,
+
+      'query_args'  => array(
+        'post_status'    => 'any',
+        'posts_per_page' => - 1,
+      ),
       'js_options'  => array(
         'width' => '100%',
         'closeOnSelect' => false,
@@ -501,13 +539,15 @@ class Phila_Gov_Standard_Metaboxes {
     );
   }
 
-  public static function phila_metabox_external( $name, $id, $columns = '12' ){
+  public static function phila_metabox_external( $id, $columns = 12 ){
     return array(
-      'name'  => $name,
+      'name'  => 'Does this link direct users away from phila.gov?',
       'id'    => $id,
-      'type'  => 'checkbox',
-      'desc'  => 'Does this link direct users away from phila.gov?',
-      'columns' => $columns
+      'type'  => 'switch',
+      'on_label'  => 'Yes',
+      'off_label' => 'No',
+      'columns' => $columns,
+      'class' => 'is-external',
     );
   }
 
@@ -564,14 +604,9 @@ class Phila_Gov_Standard_Metaboxes {
         'id'    => 'phila_action_panel_link_multi',
         'type'  => 'text',
         'class' => 'action-panel-link',
+        'columns' => 6,
       ),
-      array(
-        'name'  => 'External Link',
-        'id'    => 'phila_action_panel_link_loc_multi',
-        'type'  => 'checkbox',
-        'class' => 'action-panel-link-loc',
-        'desc'  => 'Does this link directs users away from beta.phila.gov?',
-      )
+      Phila_Gov_Standard_Metaboxes::phila_metabox_external($id = 'phila_action_panel_link_loc_multi'),
     );
   }
 
@@ -635,12 +670,13 @@ class Phila_Gov_Standard_Metaboxes {
                  'class' => 'action-panel-fa',
                ),
                array(
-                 'name'  => 'Icon background',
+                 'name'  => 'Add a circle background?',
                  'id'    => 'phila_action_panel_fa_circle_multi',
-                 'type'  => 'checkbox',
+                 'type'  => 'switch',
                  'class' => 'action-panel-fa',
                  'std'  => 1,
-                 'desc'  => 'Should this icon have a circle background?',
+                 'on_label'  => 'Yes',
+                 'off_label' => 'No'
 
                ),
                array(
@@ -648,14 +684,9 @@ class Phila_Gov_Standard_Metaboxes {
                  'id'    => 'phila_action_panel_link_multi',
                  'type'  => 'text',
                  'class' => 'action-panel-link',
+                 'columns'  => 6,
                ),
-               array(
-                 'name'  => 'External link',
-                 'id'    => 'phila_action_panel_link_loc_multi',
-                 'type'  => 'checkbox',
-                 'class' => 'action-panel-link-loc',
-                 'desc'  => 'Does this link directs users away from beta.phila.gov?',
-               ),
+               Phila_Gov_Standard_Metaboxes::phila_metabox_external($id = 'phila_action_panel_link_loc_multi')
              ),
            ),
            array(
@@ -870,7 +901,7 @@ public static function phila_meta_var_connect(){
             'desc' => 'example@phila.gov',
           ),
           Phila_Gov_Standard_Metaboxes::phila_metabox_v2_link_fields('Website', 'phila_web_link', false),
-          Phila_Gov_Standard_Metaboxes::phila_metabox_url('See all link', 'connect_see_all'),
+
         ),
       )
     );
@@ -931,18 +962,22 @@ public static function phila_meta_var_connect(){
       Phila_Gov_Standard_Metaboxes::phila_metabox_v2_link_fields('', 'cta_full_link'),
       array(
         'id' => 'cta_is_survey',
-        'desc'  => 'Is this a link to a survey or other form of feedback gathering?',
-        'type'  => 'checkbox',
+        'name'  => 'Is this a link to a survey or other form of feedback gathering?',
+        'type'  => 'switch',
+        'on_label'  => 'Yes',
+        'off_label' => 'No'
       ),
       array(
         'id' => 'cta_is_modal',
-        'desc'  => 'Should this content appear in a modal?',
-        'type'  => 'checkbox',
+        'name'  => 'Should this content appear in a modal?',
+        'type'  => 'switch',
+        'on_label'  => 'Yes',
+        'off_label' => 'No'
       ),
       array(
         'id'   => 'cta_modal',
         'type'  => 'group',
-        'visible' => array( 'cta_is_modal', '1' ),
+        'visible' => array( 'cta_is_modal', 1 ),
 
         'fields' => array(
           array(

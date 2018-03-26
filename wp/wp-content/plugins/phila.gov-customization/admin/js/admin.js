@@ -1,5 +1,5 @@
 function phila_get_user_roles_callback() {
-  if (phila_WP_User.includes('multi_department_access') || phila_WP_User.includes('administrator') || phila_WP_User.includes('editor') ){
+  if (phila_WP_User.includes('multi_department_access') || phila_WP_User.includes('administrator') || phila_WP_User.includes('editor') || phila_WP_User.includes('secondary_all_departments') ){
     return true;
   }else{
     return false;
@@ -14,25 +14,30 @@ function phila_user_read_only(){
 /* For all admins */
 jQuery(document).ready(function($) {
 
-  // Set error placement, and highlights for custom taxonomy checkboxes
-  // MAYBE WE WILL NEED THIS IN THE FUTURE.
+  //disable dupliate action on document pages, document meta not saving state propery.
+  if ( ( typenow === 'document') && adminpage.indexOf('post') > -1 ){
+    $('#duplicate-action').css('display', 'none')
+  }
+
+
+  // Set error placement, and highlights for category selection
   jQuery.validator.setDefaults({
     errorPlacement: function( error, element ) {
-      if( error.attr('id').indexOf('tax_input') > -1 ) {
+      if( error.attr('id').indexOf('post_category') > -1 ) {
           error.insertAfter( $( element ).parents('.categorydiv').eq(0) );
       } else {
           error.insertAfter( element );
       }
     },
     highlight: function( element, errorClass ) {
-      if( jQuery( element ).attr('name').indexOf('tax_input') > -1 ) {
+      if( jQuery( element ).attr('name').indexOf('post_category') > -1 ) {
         jQuery( element ).parents('.categorydiv').eq(0).addClass( errorClass );
       } else {
         jQuery( element ).addClass( errorClass );
       }
     },
     unhighlight: function( element, errorClass ) {
-      if( jQuery( element ).attr('name').indexOf('tax_input') > -1 ) {
+      if( jQuery( element ).attr('name').indexOf('post_category') > -1 ) {
         jQuery( element ).parents('.categorydiv').eq(0).removeClass( errorClass );
       } else {
         jQuery( element ).removeClass( errorClass );
@@ -52,19 +57,33 @@ jQuery(document).ready(function($) {
       jQuery( '#edit-slug-box' ).hide();
     }
 
-    if ( philaAllPostTypes.indexOf( typenow ) !== -1 && adminpage.indexOf( 'post' ) > -1 ) {
+    if ( ( typenow != 'attachment' ) && adminpage.indexOf( 'post' ) > -1 )  {
+
       $('#post').validate({
         rules: {
           'post_title': 'required'
         }
       });
-      $('#title').rules('add', {
-        maxlength: 72
-      });
-      $('#phila_meta_desc').rules('add', {
-        maxlength: 140
-      });
+      //Don't allow editing of title field when duplicated and increase text limit so validation won't prevent save of draft, but not on staff directory where there is no title field
+      if ( typenow != 'staff_directory') {
 
+        if( $( "#title" ).val().indexOf('[Duplicated]') != -1){
+          $('#title').rules('add', {
+              maxlength: 72 + 14
+            });
+            $( "#title" ).attr('disabled', true);
+            $( "<div style='color:#838383; padding-left:5px;'>This field isn't avilable to edit. To change the title, save as a new item.</div> " ).insertAfter('#title');
+
+        }else{
+        $('#title').rules('add', {
+            maxlength: 72
+          });
+        }
+        $('#phila_meta_desc').rules('add', {
+          maxlength: 140
+        });
+
+      }
       // Set validations for custom post type Service Page
       if ( typenow == 'service_page' && adminpage.indexOf( 'post' ) > -1 ) {
         $('select[name="parent_id"]' ).rules( 'add', {
@@ -115,14 +134,6 @@ jQuery(document).ready(function($) {
 
   if ( ( typenow == 'department_page' ) && adminpage.indexOf( 'post' ) > -1 )  {
     var templateSelect = $('#phila_template_select');
-
-    //Set character limits for hero-taglines
-    $('#phila_hero_header_title_l1').rules( 'add' , {
-      maxlength: 20
-    });
-    $('#phila_hero_header_title_l2').rules( 'add' , {
-      maxlength: 15
-    });
 
     if ( templateSelect.val() == 'off_site_department' ){
       setOffSiteInputVals();
@@ -190,6 +201,14 @@ jQuery(document).ready(function($) {
     });
 
   }
+  //Force category selection on all content types
+  if ( ( typenow != 'attachment' ) && adminpage.indexOf( 'post' ) > -1 ) {
+
+    $( 'input[name="post_category[]"]' ).rules( 'add', {
+         'required': true
+       }
+     );
+  }
 
   /*
   * Intercepts the ajax response sent from Apperance -> Menu -> Departments search results and adds the upmost parent of each child page found. This should make it easier to identify child pages that have the same name".
@@ -211,7 +230,7 @@ jQuery(document).ready(function($) {
             deptPageIds.push($(this).val());
           });
           if(deptPageIds.length > 0){
-            updateResponseCheckboxes(deptPageIds); 
+            updateResponseCheckboxes(deptPageIds);
           }
         }
       }

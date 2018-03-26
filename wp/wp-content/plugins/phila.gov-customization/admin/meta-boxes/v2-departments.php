@@ -11,6 +11,9 @@ function phila_register_department_meta_boxes( $meta_boxes ){
     'visible' => array( 'phila_template_select', 'homepage_v2' ),
     'context'  => 'normal',
     'priority' => 'high',
+    'include' => array(
+      'user_role'  => array( 'administrator', 'editor', 'primary_department_homepage_editor' ),
+    ),
 
     'fields' => array(
       array(
@@ -157,7 +160,7 @@ function phila_register_department_meta_boxes( $meta_boxes ){
         'id'  => 'phila_get_staff_cats',
         'type' => 'group',
         'fields' => array(
-          Phila_Gov_Standard_Metaboxes::phila_metabox_category_picker('Select new categories', 'phila_staff_category', 'Display staff from these categories. This will override page category selection entirely.' ),
+          Phila_Gov_Standard_Metaboxes::phila_metabox_category_picker('Select new owner', 'phila_staff_category', 'Display staff from these owners. This will override page ownership selection entirely.' ),
         ),
       ),
     ),
@@ -257,10 +260,11 @@ $meta_boxes[] = array(
 
       'fields' => array(
           array(
-            'name' => '',
+            'name' => 'Display a Programs and Initiatives grid?',
             'id'   => 'phila_progs_inits_grid_shown',
-            'desc'  => 'Should this page show Programs and Initiatives Grid?',
-            'type' => 'checkbox'
+            'type' => 'switch',
+            'on_label'  => 'Yes',
+            'off_label' => 'No'
           )
       )
     );//Things To Do
@@ -275,10 +279,11 @@ $meta_boxes[] = array(
 
       'fields' => array(
           array(
-            'name' => '',
+            'name' => 'Display a Featured Activities grid?',
             'id'   => 'phila_feat_activites_grid_shown',
-            'desc'  => 'Should this page show the Featured Activities Grid?',
-            'type' => 'checkbox'
+            'type' => 'switch',
+            'on_label'  => 'Yes',
+            'off_label' => 'No',
           )
       )
     );
@@ -294,10 +299,11 @@ $meta_boxes[] = array(
 
       'fields' => array(
           array(
-            'name' => '',
+            'name' => 'Display a Featured Locations grid?',
             'id'   => 'phila_feat_locations_grid_shown',
-            'desc'  => 'Should this page show the Featured Locations Grid?',
-            'type' => 'checkbox'
+            'type' => 'switch',
+            'on_label'  => 'Yes',
+            'off_label' => 'No',
           ),
           array(
             'id' => 'phila_feat_locations_grid__header',
@@ -384,14 +390,35 @@ $meta_boxes[] = array(
   );
 
   $meta_boxes[] = array(
-    'title' => 'Department code',
+    'title' => 'Department metadata',
     'pages'    => array( 'department_page' ),
     'context'  => 'side',
     'priority' => 'low',
+    'visible' => array(
+      'when' => array(
+        array('phila_template_select', 'homepage_v2'),
+        array('phila_template_select', 'department_homepage'),
+        array('phila_template_select', 'off_site_department')
+      ),
+      'relation' => 'or'
+    ),
     'fields' => array(
       array(
         'type'  => 'number',
-        'id'  => 'phila_department_code'
+        'id'  => 'phila_department_code',
+        'name' => 'Official code'
+      ),
+      array(
+        'type'  => 'text',
+        'id'  => 'phila_department_acronym',
+        'name' => 'Acronym',
+        'desc' => 'E.g. Parks & Rec'
+      ),
+      array(
+        'type'  => 'textarea',
+        'id'  => 'phila_department_keywords',
+        'name' => 'Keywords',
+        'desc'  => 'Separate keywords with commas. E.g. Parks & Rec, trees, recreation centers'
       ),
     )
   );

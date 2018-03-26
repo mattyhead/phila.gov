@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VuePaginate from 'vue-paginate'
@@ -42,6 +44,7 @@ if (window.location.pathname === '/the-latest/archives/') {
 }else{
   new Vue({
     el: '#all-events',
+    router,
     render: h => h(Events)
   })
 }
